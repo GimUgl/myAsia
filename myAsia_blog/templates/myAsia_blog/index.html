@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block content%}
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    {% for book in books %}
+    <div class="col-4">
+        <div class="card h-100">
+            {% if book.image %}
+            <img src="{{ book.image.url }}" class="card-img-top" alt="...">
+            {% else %}
+            <img src="https://lh3.googleusercontent.com/proxy/wfrFh6Od0VAOLozK3pTx_taEg9tB9hfOvbY5cOq8xtyg5uOh-81Aajd2-0bkfptyA5x7CuBqdITOsqEvTt3RrhTEA0WvHObg6nAUxA0te-pBr8mW1Qr_kyI"
+                 class="card-img-top" alt="...">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ book.book }}</h5>
+                <p class="genres"><i><b>Жанр:</b> {{ book.genres }}</i></p>
+                <p class="card-text">{{ book.short_description }}</p>
+                <a href="{{ book.get_absolute_url }}" class="btn btn-primary">Читать</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock%}
+

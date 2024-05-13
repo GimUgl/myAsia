@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Удалить
+{% endblock %}
+
+
+{% block content %}
+<form action="" method="post">
+  {% csrf_token %}
+  <p class="text-center"><b>Действительно ли Вы желаете удалить книгу: <i>{{ books.book }}</i></b></p>
+  <p class="d-grid gap-2">
+  <input type="submit" class="btn btn-outline-secondary" value="Да"><a href="{% url 'detail' books.pk %}" class="btn btn-outline-primary">Нет</a>
+  </p>
+</form>
+{% endblock %}

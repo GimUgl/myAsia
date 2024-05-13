@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ book.book }}
+{% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card mx-auto mt-3" style="max-width: 300px;">
+        {% if book.image %}
+        <img src="{{ book.image.url }}" class="card-img-top" alt="...">
+        {% else %}
+        <img src="https://lh3.googleusercontent.com/proxy/wfrFh6Od0VAOLozK3pTx_taEg9tB9hfOvbY5cOq8xtyg5uOh-81Aajd2-0bkfptyA5x7CuBqdITOsqEvTt3RrhTEA0WvHObg6nAUxA0te-pBr8mW1Qr_kyI"
+             class="card-img-top" alt="...">
+        {% endif %}
+    </div>
+
+    <div class="card-body">
+        <h5 class="card-title"> {{ book.book }} </h5>
+
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><i><b>Жанр:</b> {{ book.genres }} </i></li>
+            <li class="list-group-item"><i><b>Добавлено:</b> {{ book.created_at }} </i></li>
+            <li class="list-group-item"><i><b>Автор:</b> {{ book.author }} </i></li>
+            <li class="list-group-item"><i><b>Просмотров:</b> {{ book.views}} </i></li>
+        </ul>
+
+        <p class="card-text">{{ book.description }}</p>
+    </div>
+
+    <div class="card-footer">
+        {% if request.user == book.author %}
+        <div class="d-flex column-gap-2">
+            <a href="{% url 'update' book.pk %}" class="btn btn-warning">Изменить</a>
+            <a href="{% url 'delete' book.pk %}" class="btn btn-dark">Удалить</a>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item"><i><b>Скачать книгу:</b></i>   <a href="{{ book.files.url }}" class="btn btn-outline-Link">СКАЧАТЬ</a></li>
+            <li class="list-group-item"><i><b>Читать онлайн:</b></i> <a href="{% url 'reader' book.pk %}" class="btn btn-outline-Link">ЧИТАТЬ</a></li>
+        </ul>
+    </div>
+</div>
+
+<div>
+    <h4 class="text-left">Комментарии</h4>
+
+    <div class="comments">
+        {% for comment in comments %}
+        <div class="card mb-3 ">
+            <div class="card-header">
+                {{ comment.author }}
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>{{ comment.comment }}</p>
+                    <footer class="blockquote-footer">{{ comment.created_at }}
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+        {% endfor %}
+        {% include 'include/_pagination.html' %}
+    </div>
+
+
+    {% if request.user.is_authenticated %}
+    <form action="" class="mt-5" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn mt-3 mb-3 btn-dark">Отправить</button>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

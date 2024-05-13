@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Страница пользователя
+{% endblock %}
+
+{% block content %}
+<ul class="list-group">
+    <li class="list-group-item list-group-action">
+        Пользователь: <b>{{ user.username }}</b>
+    </li>
+    <li class="list-group-item list-group-action">
+        Почта: <b>{{ user.email }}</b>
+    </li>
+    <li class="list-group-item list-group-action">
+        Имя: <b>{{ user.last_name }} {{ user.first_name }}</b>
+    </li>
+    <li class="list-group-item list-group-action mb-3">
+        Кол-во добавленных книг: <b>{{ book_count }}</b>
+    </li>
+</ul>
+
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    {% for book in book %}
+    <div class="col-4">
+        <div class="card h-100">
+            {% if book.image %}
+            <img src="{{ book.image.url }}" class="card-img-top" alt="...">
+            {% else %}
+            <img src="https://lh3.googleusercontent.com/proxy/wfrFh6Od0VAOLozK3pTx_taEg9tB9hfOvbY5cOq8xtyg5uOh-81Aajd2-0bkfptyA5x7CuBqdITOsqEvTt3RrhTEA0WvHObg6nAUxA0te-pBr8mW1Qr_kyI"
+                 class="card-img-top" alt="...">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ book.book }}</h5>
+                <p class="genres"><i><b>Жанр:</b> {{ book.genres }}</i></p>
+                <p class="card-text">{{ book.short_description }}</p>
+                <div class="d-flex column-gap-2 mb-3">
+                    <a href="{{ book.get_absolute_url }}" class="btn btn-outline-secondary">Перейти</a>
+                    <a href="{% url 'update' book.pk %}" class="btn btn-outline-secondary">Изменить</a>
+                </div>
+                <a href="{% url 'delete' book.pk %}" class="btn btn-outline-danger">Удалить</a>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

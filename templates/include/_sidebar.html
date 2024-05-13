@@ -1,0 +1,10 @@
+{% load custom_tags %}
+
+{% get_genres as genres %}
+
+
+<div class="list-group">
+    {% for genre in genres %}
+    <a href="{% url 'genres_books' genre.pk %}" class="list-group-item list-group-item-action">{{ genre }}</a>
+    {% endfor %}
+</div>
