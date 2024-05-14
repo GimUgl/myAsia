@@ -2,4 +2,4 @@ venv/
 .idea/
 __pycache__/
 books/
-myAsia_db/
+myAsia_db
