@@ -24,8 +24,8 @@ SECRET_KEY = 'django-insecure-0s!)9a+fj2=7kv=8-8%q8h=p2%k00)=9fvtpitifdk5f1552t&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['smasung.pythonanywhere.com',]
-# 'smasung.pythonanywhere.com',
+ALLOWED_HOSTS = ['myasia.pythonanywhere.com',]
+# 'myasia.pythonanywhere.com',
 
 # Application definition
 
@@ -84,10 +84,10 @@ WSGI_APPLICATION = 'myAsia.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'smasung$myAsia_db2',
-        'USER': 'smasung',
+        'NAME': 'myasia$default',
+        'USER': 'myasia',
         'PASSWORD': '4a6171c9',
-        'HOST': 'smasung.mysql.pythonanywhere-services.com'
+        'HOST': 'myasia.mysql.pythonanywhere-services.com'
 
         # 'ENGINE': 'django.db.backends.postgresql',
         # 'NAME': 'myAsia_db',
@@ -132,8 +132,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-STATIC_ROOT = '/home/smasung/myAsia/static'
-MEDIA_ROOT = '/home/smasung/myAsia/media'
+STATIC_ROOT = '/home/myasia/static'
+MEDIA_ROOT = '/home/myasia/media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
