@@ -20,11 +20,11 @@ def fb2_reader_view(request, book_pk):
 
     dir_url = os.path.join(BASE_DIR)
     dir_url1 = dir_url.split('\\')
-    r_url1 = dir_url1[0] + '/' + dir_url1[1] + '/' + dir_url1[2] + '/'
+    r_url1 = dir_url1[0] + '/' + dir_url1[1]
 
     file_url = os.path.join(book.files.url)
     file_url1 = file_url.split('/')
-    r_url2 = file_url1[1] + '/' + file_url1[2] + '/' + file_url1[3] + '/' + file_url1[4]
+    r_url2 = file_url1[0] + '/' + file_url1[1] + '/' + file_url1[2] + '/'
 
     r_url = r_url1 + r_url2
 
