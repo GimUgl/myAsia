@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-0s!)9a+fj2=7kv=8-8%q8h=p2%k00)=9fvtpitifdk5f1552t&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['myasia.pythonanywhere.com',]
+ALLOWED_HOSTS = []
 # 'myasia.pythonanywhere.com',
 
 # Application definition
@@ -89,12 +89,8 @@ DATABASES = {
         'PASSWORD': '4a6171c9',
         'HOST': 'myasia.mysql.pythonanywhere-services.com'
 
-        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': 'myAsia_db',
-        # 'USER': 'postgres',
-        # 'PASSWORD': '123456',
-        # 'HOST': 'localhost',
-        # 'PORT': ''
     }
 }
 
@@ -121,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
