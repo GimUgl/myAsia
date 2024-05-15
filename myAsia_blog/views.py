@@ -18,15 +18,15 @@ from lxml import etree
 def fb2_reader_view(request, book_pk):
     book = Books.objects.get(pk=book_pk)
 
-    dir_url = os.path.join(BASE_DIR)
-    dir_url1 = dir_url.split('\\')
-    r_url1 = dir_url1[0] + '/' + dir_url1[1]
-
-    file_url = os.path.join(book.files.url)
-    file_url1 = file_url.split('/')
-    r_url2 = file_url1[0] + '/' + file_url1[1] + '/' + file_url1[2] + '/'
-
-    r_url = r_url1 + r_url2
+    # dir_url = os.path.join(BASE_DIR)
+    # dir_url1 = dir_url.split('\\')
+    # r_url1 = dir_url1[0] + '/' + dir_url1[1]
+    #
+    # file_url = os.path.join(book.files.url)
+    # file_url1 = file_url.split('/')
+    # r_url2 = file_url1[0] + '/' + file_url1[1] + '/' + file_url1[2] + '/'
+    #
+    # r_url = r_url1 + r_url2
 
     # with open(r_url, encoding="utf-8") as file:
     #     src = file.read()
@@ -36,8 +36,8 @@ def fb2_reader_view(request, book_pk):
     # find_body_section = soup.find('body').find_all('section')
     # print(find_body_section)
 
-    fb2_file = r_url
-    txt_file = 'D:/django_project/myAsia/media/files/books/txt_file.txt'
+    fb2_file = BASE_DIR + book.files.url
+    txt_file = 'fb2.txt'
     tree = ET.parse(fb2_file)
     root = tree.getroot()
 
