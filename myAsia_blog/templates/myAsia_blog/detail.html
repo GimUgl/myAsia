@@ -40,7 +40,7 @@
 
     <div class="card-body">
         <ul class="list-group">
-            <li class="list-group-item"><i><b>Скачать книгу:</b></i>   <a href="{{ book.files.file }}" class="btn btn-outline-Link">СКАЧАТЬ</a></li>
+            <li class="list-group-item"><i><b>Скачать книгу:</b></i>   <a href="{{ book.files.url }}" class="btn btn-outline-Link">СКАЧАТЬ</a></li>
             <li class="list-group-item"><i><b>Читать онлайн:</b></i> <a href="{% url 'reader' book.pk %}" class="btn btn-outline-Link">ЧИТАТЬ</a></li>
         </ul>
     </div>
