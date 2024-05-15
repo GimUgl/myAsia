@@ -18,7 +18,9 @@ from lxml import etree
 def fb2_reader_view(request, book_pk):
     book = Books.objects.get(pk=book_pk)
 
-    fb2_file = book.files.url
+    url1 = '/home/myasia'
+    url2 = book.files.url
+    fb2_file = url1 + url2
     txt_file = 'fb2.txt'
     tree = ET.parse(fb2_file)
     root = tree.getroot()
